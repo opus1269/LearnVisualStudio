@@ -2,10 +2,13 @@
 //
 
 #include <iostream>
+#include "Point.h"
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+  Point p1 = Point();
+  Point p2 = Point(1,2);
+
+  std::cout << "Hello World!\n" << p1 << " " << p2;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
