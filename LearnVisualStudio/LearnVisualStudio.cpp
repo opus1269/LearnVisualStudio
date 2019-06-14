@@ -3,12 +3,15 @@
 
 #include <iostream>
 #include "Point.h"
+#include "Line.h"
 
 int main() {
   Point p1 = Point();
-  Point p2 = Point(1,2);
+  Point p2 = Point(2, 3);
+  Line line = Line(p1, p2);
+  double length = line.length();
 
-  std::cout << "Hello World!\n" << p1 << " " << p2;
+  std::cout << p1 << " " << p2 << " length: " << length << '\n';
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
