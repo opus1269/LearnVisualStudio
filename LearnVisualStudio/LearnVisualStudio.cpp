@@ -7,7 +7,7 @@
 
 int main() {
   Point p1 = Point();
-  Point p2 = Point(2, 3);
+  Point p2 = Point(3, 4);
   Line line = Line(p1, p2);
   double length = line.length();
 
