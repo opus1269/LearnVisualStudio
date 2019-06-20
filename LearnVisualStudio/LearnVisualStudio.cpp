@@ -17,13 +17,14 @@ int main() {
 
   std::cout << p1 << " " << p2 << " length: " << length << '\n';
 
-  int arr[] = {7, 2, 5, 6, 11, 3};
+  int arr[] = {7, 2, -5, 6, 4444, 11, 3};
   std::cout << "The array has: " << std::size(arr) << " elements\n";
   for (size_t i = 0; i < std::size(arr); i++) {
     std::cout << i << ": " << arr[i] << '\n';
   }
 
   Sort::getInstance().mergeSort(arr, 0, std::size(arr) - 1);
+  std::cout << "\nSorted:\n";
   for (size_t i = 0; i < std::size(arr); i++) {
     std::cout << i << ": " << arr[i] << '\n';
   }

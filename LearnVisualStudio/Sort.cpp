@@ -12,11 +12,13 @@ void Sort::mergeSort(int arr[], int beg, int end) {
   mergeSort(arr, beg, mid);
   mergeSort(arr, mid + 1, end);
 
-  int i = beg, j = mid + 1;
-  int l = end - beg + 1;
-  int *temp = new int[l];
-  for (int k = 0; k < l; k++) {
-    if (j > end || (i <= mid && arr[i] < arr[j])) {
+  int i = beg;
+  int j = mid + 1;
+  int len = end - beg + 1;
+  int *temp = new int[len];
+
+  for (int k = 0; k < len; k++) {
+    if ((j > end) || ((i <= mid) && (arr[i] < arr[j]))) {
       temp[k] = arr[i];
       i++;
     } else {
@@ -25,9 +27,9 @@ void Sort::mergeSort(int arr[], int beg, int end) {
     }
   }
 
-  for (int k = 0, i = beg; k < l; k++, i++) {
+  for (int k = 0, i = beg; k < len; k++, i++) {
     arr[i] = temp[k];
   }
 
-  delete temp;
+  delete []temp;
 }
