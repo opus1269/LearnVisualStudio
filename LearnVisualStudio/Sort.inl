@@ -1,10 +1,9 @@
-#include <iostream>  // for std::cout
-#include <iterator>  // for std::size
+// Template defintions
 
-#include "Sort.h"
 namespace mysort {
 
-void mergeSort(int arr[], int beg, int end) {
+template <class T, int N>
+void mergeSort(T (&arr)[N], int beg, int end) {
   if (beg == end) {
     return;
   }
@@ -19,7 +18,8 @@ void mergeSort(int arr[], int beg, int end) {
 // anonymouse namespace to hide private stuff
 namespace {
 
-void merge(int arr[], int beg, int end) {
+template <class T, int N>
+void merge(T (&arr)[N], int beg, int end) {
   int mid = (beg + end) / 2;
   int i = beg;
   int j = mid + 1;

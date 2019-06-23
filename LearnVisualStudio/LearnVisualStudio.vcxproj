@@ -154,7 +154,6 @@
     <ClCompile Include="LearnVisualStudio.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="Point.cpp" />
-    <ClCompile Include="Sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Line.h" />
