@@ -1,5 +1,5 @@
-#include <cmath>
 #include "Line.h"
+#include <cmath>
 
 double Line::length() {
   double dxsq = pow(p2.x() - p1.x(), 2);

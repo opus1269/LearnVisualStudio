@@ -1,14 +1,16 @@
-// Template defintions
+// Template definitiions
+#include <iterator>  // for std::size_t
 
 namespace mysort {
+using std::size_t;
 
-template <class T, int N>
-void mergeSort(T (&arr)[N], int beg, int end) {
+template <class T, size_t N>
+void mergeSort(T (&arr)[N], size_t beg, size_t end) {
   if (beg == end) {
     return;
   }
 
-  int mid = (beg + end) / 2;
+  auto mid = (beg + end) / 2;
   mergeSort(arr, beg, mid);
   mergeSort(arr, mid + 1, end);
 
@@ -18,15 +20,15 @@ void mergeSort(T (&arr)[N], int beg, int end) {
 // anonymouse namespace to hide private stuff
 namespace {
 
-template <class T, int N>
-void merge(T (&arr)[N], int beg, int end) {
-  int mid = (beg + end) / 2;
-  int i = beg;
-  int j = mid + 1;
-  int len = end - beg + 1;
-  int *temp = new int[len];
+template <class T, size_t N>
+void merge(T (&arr)[N], size_t beg, size_t end) {
+  auto mid = (beg + end) / 2;
+  auto i = beg;
+  auto j = mid + 1;
+  auto len = end - beg + 1;
+  T *temp = new T[len];
 
-  for (int k = 0; k < len; k++) {
+  for (size_t k = 0; k < len; k++) {
     if ((j > end) || ((i <= mid) && (arr[i] < arr[j]))) {
       temp[k] = arr[i];
       i++;
@@ -36,7 +38,7 @@ void merge(T (&arr)[N], int beg, int end) {
     }
   }
 
-  for (int k = 0, i = beg; k < len; k++, i++) {
+  for (size_t k = 0, i = beg; k < len; k++, i++) {
     arr[i] = temp[k];
   }
 
