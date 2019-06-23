@@ -31,6 +31,13 @@ int main() {
   for (size_t i = 0; i < std::size(carr); i++) {
     std::cout << i << ": " << carr[i] << '\n';
   }
+
+  double darr[] = {1.2, 33.4, -100.1, 22, 0};
+  mysort::mergeSort(darr, 0, std::size(darr) - 1);
+  std::cout << "\nSorted:\n";
+  for (size_t i = 0; i < std::size(darr); i++) {
+    std::cout << i << ": " << darr[i] << '\n';
+  }
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
