@@ -2,8 +2,9 @@
 #include <iterator>  // for std::size
 
 #include "Sort.h"
+namespace mysort {
 
-void Sort::mergeSort(int arr[], int beg, int end) {
+void mergeSort(int arr[], int beg, int end) {
   if (beg == end) {
     return;
   }
@@ -12,6 +13,14 @@ void Sort::mergeSort(int arr[], int beg, int end) {
   mergeSort(arr, beg, mid);
   mergeSort(arr, mid + 1, end);
 
+  merge(arr, beg, end);
+}
+
+// anonymouse namespace to hide private stuff
+namespace {
+
+void merge(int arr[], int beg, int end) {
+  int mid = (beg + end) / 2;
   int i = beg;
   int j = mid + 1;
   int len = end - beg + 1;
@@ -31,5 +40,9 @@ void Sort::mergeSort(int arr[], int beg, int end) {
     arr[i] = temp[k];
   }
 
-  delete []temp;
+  delete[] temp;
 }
+
+}  // namespace
+
+}  // namespace mysort

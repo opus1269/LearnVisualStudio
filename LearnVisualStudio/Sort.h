@@ -1,18 +1,13 @@
 #pragma once
 
-class Sort {
- public:
-  static Sort& getInstance() {
-    static Sort instance;  // Guaranteed to be destroyed.
-                        // Instantiated on first use.
-    return instance;
-  }
+namespace mysort {
 
- private:
-  Sort() {}  // Constructor? (the {} brackets) are needed here.
+void mergeSort(int array[], int beg, int end);
 
- public:
-  Sort(Sort const&) = delete;
-  void operator=(Sort const&) = delete;
-  void mergeSort(int array[], int startIndex, int endIndex);
-};
+namespace {
+
+void merge(int array[], int beg, int end);
+
+}
+
+}  // namespace mysort
