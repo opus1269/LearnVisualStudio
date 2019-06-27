@@ -1,5 +1,7 @@
 #pragma once
-#include <iterator>  // for std::size_t
+
+#include <cstddef>
+#include <memory>
 
 namespace mysort {
 using std::size_t;
@@ -25,7 +27,7 @@ void merge(T (&arr)[N], size_t beg, size_t end) {
   auto i = beg;
   auto j = mid + 1;
   auto len = end - beg + 1;
-  T *temp = new T[len];
+  auto temp = std::make_unique<T[]>(len);
 
   for (size_t k = 0; k < len; k++) {
     if ((j > end) || ((i <= mid) && (arr[i] < arr[j]))) {
@@ -40,8 +42,6 @@ void merge(T (&arr)[N], size_t beg, size_t end) {
   for (size_t k = 0, i = beg; k < len; k++, i++) {
     arr[i] = temp[k];
   }
-
-  delete[] temp;
 }
 
 }  // namespace
